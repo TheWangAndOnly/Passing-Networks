@@ -1,7 +1,8 @@
 from statsbombpy import sb
+import pandas as pd
 
 def get_competitions():
-    return sb.competitions()
+    pass
 
 def get_matches(season_id=None, competition_id=None):
     return sb.matches(season_id, competition_id)
