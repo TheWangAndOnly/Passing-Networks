@@ -11,8 +11,8 @@ def get_passes(df):
     df['x'] = df['x'] * 1.05 #preferred size for most professional teams stadium (105m,68m)
     df['y'] = df['y'] * .68 
     df = df.drop(['location', 'pass_end_location'], axis =1)
+    df = df[df['type'] == 'Pass']
+    
     
     return df 
-    
-
     
