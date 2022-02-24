@@ -10,6 +10,9 @@ import pandas as pd
 from pandas.core.common import SettingWithCopyWarning
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
+def choose_team(df, team):
+    df = df[df['team'] == f"{team}"]
+    return df 
 
 
 if __name__ == '__main__':
