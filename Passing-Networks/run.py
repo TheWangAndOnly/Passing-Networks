@@ -10,7 +10,7 @@ import pandas as pd
 from pandas.core.common import SettingWithCopyWarning
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
-class Plot:
-    
-    def __init__(self) -> None:
-        pass
+
+
+if __name__ == '__main__':
+    pass
