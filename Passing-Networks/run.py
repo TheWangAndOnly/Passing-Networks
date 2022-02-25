@@ -10,15 +10,9 @@ import pandas as pd
 from pandas.core.common import SettingWithCopyWarning
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
-def choose_team(df, team):
-    df = df[df['team'] == f"{team}"]
-    return df 
-
-def successful_passes(df):
-    df = df.fillna('Nice')
-    df = df[df['pass_outcome'] == 'Nice']
-    return df
-
+def choose_team(network, team):
+    network = network[network['team'] == f"{team}"]
+    return network 
 
 
 if __name__ == '__main__':
