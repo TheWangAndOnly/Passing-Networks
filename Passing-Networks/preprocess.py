@@ -12,7 +12,19 @@ def get_passes(df):
     df['y'] = df['y'] * .68 
     df = df.drop(['location', 'pass_end_location'], axis =1)
     df = df[df['type'] == 'Pass']
-    
+    df = df.fillna('Suc')
+    df = df[df['pass_outcome'] == 'Suc']
     
     return df 
     
+def first_sub(df):
+    first_sub = df['minute'].min()
+    network = df[df['minute'].values <= first_sub]
+    return network
+
+def average_locations(network):
+     
+    avg = network.groupby('player').agg({'x':'mean', 'y':['mean', 'count']})
+    avg.columns = ['x', 'y', 'count']
+    
+    return avg
