@@ -14,6 +14,12 @@ def choose_team(df, team):
     df = df[df['team'] == f"{team}"]
     return df 
 
+def successful_passes(df):
+    df = df.fillna('Nice')
+    df = df[df['pass_outcome'] == 'Nice']
+    return df
+
+
 
 if __name__ == '__main__':
     pass
