@@ -19,12 +19,21 @@ def get_passes(df):
     
 def first_sub(df):
     first_sub = df['minute'].min()
-    network = df[df['minute'].values <= first_sub]
-    return network
+    prenetwork = df[df['minute'].values <= first_sub]
+    return prenetwork
 
-def average_locations(network):
+def average_locations(prenetwork):
      
-    avg = network.groupby('player').agg({'x':'mean', 'y':['mean', 'count']})
+    avg = prenetwork.groupby('player').agg({'x':'mean', 'y':['mean', 'count']})
     avg.columns = ['x', 'y', 'count']
     
     return avg
+
+def passes_between_players(prenetwork, avg):
+    
+    pass_between = prenetwork.groupby(['player', 'pass_recipient']).id.count().reset_index()
+    pass_between = pass_between.rename({'id':'pass_count'}, axis='columns')
+    network = pass_between.merge(avg, left_on='player', right_index=True)
+    network = pass_between.merge(avg, left_on='pass_recipient', right_index=True)
+    
+    return network
