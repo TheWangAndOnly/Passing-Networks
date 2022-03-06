@@ -1,5 +1,6 @@
 from statsbombpy import sb
 from statsbomb_data import get_events
+from preprocess import get_passes, first_sub, average_locations, passes_between_players
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -12,7 +13,7 @@ warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 def choose_team(network, team):
     network = network[network['team'] == f"{team}"]
-    return network 
+    return network
 
 # NEED TO CHOOSE THE TEAM BEFORE PRE PROCESSING ALL THE DATA. SHOULD BE EASIER LIKE THAT.
 
