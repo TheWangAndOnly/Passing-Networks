@@ -2,6 +2,10 @@ from statsbombpy import sb
 from statsbomb_data import get_events
 import pandas as pd
 
+def choose_team(network, team):
+    network = network[network['team'] == f"{team}"]
+    return network
+
 def get_passes(df):
     
     df['x'] = [i[0] for i in df['location'].values]
@@ -37,3 +41,10 @@ def passes_between_players(prenetwork, avg):
     network = pass_between.merge(avg, left_on='pass_recipient', right_index=True)
     
     return network
+
+
+if __name__ == '__main__':
+    
+    pass
+    # 
+    # events = get_events(match_id = )

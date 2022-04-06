@@ -11,23 +11,19 @@ import pandas as pd
 from pandas.core.common import SettingWithCopyWarning
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
-def choose_team(network, team):
-    network = network[network['team'] == f"{team}"]
-    return network
-
-# NEED TO CHOOSE THE TEAM BEFORE PRE PROCESSING ALL THE DATA. SHOULD BE EASIER LIKE THAT.
+# NEED TO CHOOSE THE TEAM BEFORE PREPROCESSING ALL THE DATA. SHOULD BE EASIER LIKE THAT.
 
 def plot(network):
     
     pitch = Pitch(pitch_type='statsbomb', pitch_color='#22312b', line_color='#c7d5cc')
     fig, ax = pitch.draw(figsize=(16, 11), constrained_layout=True, tight_layout=False)
     fig.set_facecolor("#22312b")
-    # pass_lines = pitch.lines(pass_between.x_x, .pass_between.y_x, #scale the data!
+    # pass_lines = pitch.lines(pass_between.x_x, .pass_between.y_x, 
     #                         pass_between.x_y, .pass_between.y_y, 
     #                         #lw=passes_between.width,
     #                         color=color, zorder=1, ax=ax)
 
-    # nodes = pitch.scatter(avg_locations.x, .avg_locations.y, s=300, #scale!
+    # nodes = pitch.scatter(avg_locations.x, .avg_locations.y, s=300, 
     #                     color='purple', linewidth = 1.5, 
     #                     alpha = 1, zorder=1, ax=ax)
 
